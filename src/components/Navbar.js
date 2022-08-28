@@ -1,65 +1,103 @@
-import React from 'react'
+import React, { useState } from 'react'
+import close from '../assets/close.png'
+import menu from '../assets/menu.png'
 
 function Navbar() {
+  const [toggle, setToggle] = useState(false);
   return (
     <>
-      <nav className="bg-primary border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <nav className="w-full flex py-3 justify-between items-center navbar bg-primary">
+        <div className='flex flex-row'>
+          <div
+            className="inline-flex p-4 mt-4 text-tertiary md:bg-transparent md:p-0"
+            aria-current="page"
+          >
+            LOGO HERE
+          </div>
 
-        <div className="flex justify-between mx-auto">
-          <div>
-            <div
-              className="hidden justify-between items-center w-full md:flex md:w-auto"
-              id="navbar-search"
-            >
-              <div className="relative mt-3 md:hidden">
+          <ul className="list-none sm:flex hidden p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
+            <li>
+              <a
+                href="#"
+                className="block py-2 pr-4 pl-3 text-tertiary bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
+                aria-current="page"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 pr-4 pl-3 text-tertiary bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
+                aria-current="page"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 pr-4 pl-3 text-tertiary  rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
+                aria-current="page"
+              >
+                Services
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className='sm:flex hidden'>
+          <button type="button" class="text-secondary bg-tertiary hover:primary  font-medium rounded-md text-sm py-2 px-3 mr-4">Sign Up</button>
+          <button type="button" class="text-secondary bg-tertiary hover:primary  font-medium rounded-md text-sm py-2 px-3 mr-4">Login</button>
+        </div>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
+          <img
+            src={toggle ? close : menu}
+            alt="menu"
+            className="w-[28px] h-[28px] object-contain"
+            onClick={() => setToggle(!toggle)}
+          />
 
-              </div>
-              <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <div
+            className={`${!toggle ? "hidden" : "flex"
+              } flex-col p-6 bg-primary absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+          >
+            <ul className="list-none flex justify-end items-start flex-1 flex-col">
+
               <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-tertiary bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
-                    aria-current="page"
-                  >
-                    LOGO HERE
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-tertiary bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
-                    aria-current="page"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-tertiary rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-tertiary dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-tertiary md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block py-2 pr-4 pl-3 text-tertiary rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-tertiary dark:hover:bg-gray-700 dark:hover:text-tertiary md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
-                    Services
-                  </a>
-                </li>
-              </ul>
-            </div></div>
-          <div>
-            <div className='container flex justify-between items-center'>
-              <button type="button" class="text-secondary bg-tertiary hover:primary  font-medium rounded-md text-sm py-2 px-3 mr-4">Sign Up</button>
-              <button type="button" class="text-secondary bg-tertiary hover:primary  font-medium rounded-md text-sm py-2 px-3 mr-4">Login</button>
-            </div>
+                <a
+                  href="#"
+                  className="block py-2 pr-4 pl-3 text-tertiary bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
+                  aria-current="page"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 pr-4 pl-3 text-tertiary bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
+                  aria-current="page"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block py-2 pr-4 pl-3 text-tertiary  rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-tertiary"
+                  aria-current="page"
+                >
+                  Services
+                </a>
+              </li>
+            </ul>
+
+            <button type="button" class="text-secondary bg-tertiary hover:primary  font-medium rounded-md text-sm py-2 px-3 ">Sign Up</button>
+            <button type="button" class="text-secondary bg-tertiary hover:primary  font-medium rounded-md text-sm py-2 px-3 my-2">Login</button>
+
           </div>
         </div>
       </nav>
-
     </>
 
   )
